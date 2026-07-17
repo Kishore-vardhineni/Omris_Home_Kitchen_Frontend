@@ -42,7 +42,7 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            At Amma's Pickles, we believe in preserving the authentic flavors of our heritage.
+            At Omris Home Kitchen's Pickles, we believe in preserving the authentic flavors of our heritage.
             Every jar is carefully crafted using age-old recipes, handpicked sun-dried spices,
             and pure cold-pressed oils. We bring you not just a pickle, but a jar full of
             memories, love, and tradition.

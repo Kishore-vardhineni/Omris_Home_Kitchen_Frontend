@@ -58,14 +58,14 @@ export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem('ammasPicklesCart');
+    const savedCart = localStorage.getItem('OmrisHomeKitchenPicklesCart');
     if (savedCart) {
       dispatch({ type: 'INIT_CART', payload: JSON.parse(savedCart) });
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('ammasPicklesCart', JSON.stringify(state));
+    localStorage.setItem('OmrisHomeKitchenPicklesCart', JSON.stringify(state));
   }, [state]);
 
   return (
