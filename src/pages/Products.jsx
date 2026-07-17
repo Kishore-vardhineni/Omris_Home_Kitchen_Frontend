@@ -105,7 +105,7 @@ const Products = () => {
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    <ShoppingCart size={16} /> ADD TO CART
+                    {/* <ShoppingCart size={16} /> ADD TO CART */}
                   </button>
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
@@ -147,7 +147,7 @@ const Products = () => {
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    <ShoppingCart size={16} /> ADD TO CART
+                    {/* <ShoppingCart size={16} /> ADD TO CART */}
                   </button>
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
@@ -189,7 +189,7 @@ const Products = () => {
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    <ShoppingCart size={16} /> ADD TO CART
+                    {/* <ShoppingCart size={16} /> ADD TO CART */}
                   </button>
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
@@ -231,7 +231,7 @@ const Products = () => {
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    <ShoppingCart size={16} /> ADD TO CART
+                    {/* <ShoppingCart size={16} /> ADD TO CART */}
                   </button>
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
