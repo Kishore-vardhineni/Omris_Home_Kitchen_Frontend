@@ -111,8 +111,8 @@ const HeroSection = () => {
       </div>
 
       {/* ── Content ──────────────────────────────────────────── */}
-      <div className="container hero-inner">
-        <div className="hero-content">
+      <div className="container hero-inner flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 w-full py-20 sm:py-28 lg:py-20">
+        <div className="hero-content flex-1 w-full max-w-full lg:max-w-xl z-10">
 
           {/* mode="wait" → exit finishes BEFORE enter starts → no double text */}
           <AnimatePresence mode="wait" initial={false}>
@@ -128,16 +128,16 @@ const HeroSection = () => {
               <span className="hero-tag">{slide.tag}</span>
 
               {/* Heading */}
-              <h1>
-                <span className="hero-title-italic">{slide.titleItalic}</span>
-                <span className="hero-title-bold">{slide.titleBold}</span>
+              <h1 className="break-words mb-5">
+                <span className="hero-title-italic block sm:inline mr-2">{slide.titleItalic}</span>
+                <span className="hero-title-bold block sm:inline">{slide.titleBold}</span>
               </h1>
 
               {/* Subtitle */}
               <p className="subtitle">{slide.sub}</p>
 
               {/* Features — horizontal row */}
-              <div className="features">
+              <div className="features flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-6 mb-10">
                 {FEATURES.map((f) => (
                   <div className="feature-item" key={f.label}>
                     <span className="feature-icon">{f.icon}</span>

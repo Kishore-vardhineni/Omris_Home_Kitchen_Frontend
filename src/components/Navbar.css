@@ -21,6 +21,7 @@
 
 .contact-info {
   display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
@@ -61,8 +62,7 @@
 }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  /* display and gap controlled by tailwind classes */
 }
 
 .nav-links a {

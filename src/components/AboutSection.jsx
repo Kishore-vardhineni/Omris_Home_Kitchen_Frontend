@@ -7,8 +7,8 @@ import '../styles/AboutSection.css';
 const AboutSection = () => {
   return (
     <section className="about-section">
-      <div className="container about-inner">
-        <div className="about-image-col">
+      <div className="container about-inner grid grid-cols-1 lg:grid-cols-3 gap-12 text-center lg:text-left">
+        <div className="about-image-col order-2 lg:order-1 flex justify-center">
           <motion.div
             className="about-jar"
             animate={{ y: [0, -15, 0] }}
@@ -19,7 +19,7 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        <div className="about-content-col">
+        <div className="about-content-col order-1 lg:order-2">
           <motion.h4
             className="subtitle-accent"
             initial={{ opacity: 0, x: 20 }}
@@ -60,8 +60,8 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        <div className="about-features-col">
-          <motion.div className="feature-grid"
+        <div className="about-features-col order-3 mt-8 lg:mt-0">
+          <motion.div className="feature-grid grid grid-cols-1 sm:grid-cols-2 gap-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

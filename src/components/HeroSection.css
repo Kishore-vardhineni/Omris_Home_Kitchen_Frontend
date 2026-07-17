@@ -75,19 +75,13 @@
 .hero-inner {
   position: relative;
   z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
   width: 100%;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  /* flex, gap, padding handled by Tailwind */
 }
 
 .hero-content {
-  flex: 1;
-  max-width: 580px;
   color: #fff;
+  /* flex, max-width handled by Tailwind */
 }
 
 .hero-right-spacer {
@@ -134,10 +128,7 @@
 
 /* ── Feature list ──────────────────────────────────────────── */
 .features {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
+  /* flex and gap handled by Tailwind */
 }
 
 .feature-item {
@@ -255,10 +246,7 @@
   }
 
   .hero-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    /* flex handled by Tailwind */
   }
 
   .hero-right-spacer {
@@ -266,7 +254,7 @@
   }
 
   .hero-content {
-    max-width: 100%;
+    /* max-width handled by Tailwind */
   }
 
   .hero-overlay {
@@ -284,8 +272,7 @@
   }
 
   .hero-inner {
-    padding-top: 5rem;
-    padding-bottom: 7rem;
+    /* padding handled by Tailwind */
   }
 
   .hero-content h1 {
