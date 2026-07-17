@@ -101,12 +101,12 @@ const Products = () => {
                   <h4>{product.name}</h4>
                   <span className="weight-badge">{product.weight}</span>
                   <p className="tomato-price">₹{product.price}</p>
-                  <button
+                  {/* <button
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    {/* <ShoppingCart size={16} /> ADD TO CART */}
-                  </button>
+                    <ShoppingCart size={16} /> ADD TO CART
+                  </button> */}
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
                     onClick={() => handleWhatsApp(product)}
@@ -143,12 +143,12 @@ const Products = () => {
                   <h4>{product.name}</h4>
                   <span className="weight-badge">{product.weight}</span>
                   <p className="tomato-price">₹{product.price}</p>
-                  <button
+                  {/* <button
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    {/* <ShoppingCart size={16} /> ADD TO CART */}
-                  </button>
+                    <ShoppingCart size={16} /> ADD TO CART
+                  </button> */}
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
                     onClick={() => handleWhatsApp(product)}
@@ -185,12 +185,12 @@ const Products = () => {
                   <h4>{product.name}</h4>
                   <span className="weight-badge">{product.weight}</span>
                   <p className="tomato-price">₹{product.price}</p>
-                  <button
+                  {/* <button
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    {/* <ShoppingCart size={16} /> ADD TO CART */}
-                  </button>
+                    <ShoppingCart size={16} /> ADD TO CART
+                  </button> */}
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
                     onClick={() => handleWhatsApp(product)}
@@ -227,12 +227,12 @@ const Products = () => {
                   <h4>{product.name}</h4>
                   <span className="weight-badge">{product.weight}</span>
                   <p className="tomato-price">₹{product.price}</p>
-                  <button
+                  {/* <button
                     className="btn btn-primary add-to-cart-btn"
                     onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
                   >
-                    {/* <ShoppingCart size={16} /> ADD TO CART */}
-                  </button>
+                    <ShoppingCart size={16} /> ADD TO CART
+                  </button> */}
                   <button
                     className="btn btn-whatsapp add-to-cart-btn"
                     onClick={() => handleWhatsApp(product)}
