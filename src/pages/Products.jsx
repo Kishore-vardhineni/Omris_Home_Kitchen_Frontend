@@ -18,28 +18,65 @@ const WHATSAPP_NUMBER = '917670851967';
 
 
 const chickenBoneProducts = [
-  { id: 'cb-250', name: 'Chicken Bone Pickle', weight: '250g', price: 250, image: chickenBonePickleImg },
-  { id: 'cb-500', name: 'Chicken Bone Pickle', weight: '500g', price: 450, image: chickenBonePickleImg },
-  { id: 'cb-1kg', name: 'Chicken Bone Pickle', weight: '1kg', price: 799, image: chickenBonePickleImg },
+  { id: 'cb-250', name: 'Chicken Bone Pickle', weight: '250g', price: 250, image: chickenBonePickleImg, category: 'nonVeg' },
+  { id: 'cb-500', name: 'Chicken Bone Pickle', weight: '500g', price: 450, image: chickenBonePickleImg, category: 'nonVeg' },
+  { id: 'cb-1kg', name: 'Chicken Bone Pickle', weight: '1kg', price: 799, image: chickenBonePickleImg, category: 'nonVeg' },
 ];
 
 const chickenBonelessProducts = [
-  { id: 'cbl-250', name: 'Chicken Boneless Pickle', weight: '250g', price: 250, image: chickenBonelessPickleImg },
-  { id: 'cbl-500', name: 'Chicken Boneless Pickle', weight: '500g', price: 450, image: chickenBonelessPickleImg },
-  { id: 'cbl-1kg', name: 'Chicken Boneless Pickle', weight: '1kg', price: 799, image: chickenBonelessPickleImg },
+  { id: 'cbl-250', name: 'Chicken Boneless Pickle', weight: '250g', price: 250, image: chickenBonelessPickleImg, category: 'nonVeg' },
+  { id: 'cbl-500', name: 'Chicken Boneless Pickle', weight: '500g', price: 450, image: chickenBonelessPickleImg, category: 'nonVeg' },
+  { id: 'cbl-1kg', name: 'Chicken Boneless Pickle', weight: '1kg', price: 799, image: chickenBonelessPickleImg, category: 'nonVeg' },
 ];
 
 const tomatoProducts = [
-  { id: 'tom-250', name: 'Tamoto Pickle', weight: '250g', price: 250, image: mangoPickleImg },
-  { id: 'tom-500', name: 'Tamoto Pickle', weight: '500g', price: 450, image: mangoPickleImg },
-  { id: 'tom-1kg', name: 'Tamoto Pickle', weight: '1kg', price: 799, image: mangoPickleImg },
+  { id: 'tom-250', name: 'Tamoto Pickle', weight: '250g', price: 250, image: mangoPickleImg, category: 'veg' },
+  { id: 'tom-500', name: 'Tamoto Pickle', weight: '500g', price: 450, image: mangoPickleImg, category: 'veg' },
+  { id: 'tom-1kg', name: 'Tamoto Pickle', weight: '1kg', price: 799, image: mangoPickleImg, category: 'veg' },
 ];
 
 const mangoProducts = [
-  { id: 'man-250', name: 'Mango Pickle', weight: '250g', price: 250, image: mangoPickleImg },
-  { id: 'man-500', name: 'Mango Pickle', weight: '500g', price: 450, image: mangoPickleImg },
-  { id: 'man-1kg', name: 'Mango Pickle', weight: '1kg', price: 799, image: mangoPickleImg },
+  { id: 'man-250', name: 'Mango Pickle', weight: '250g', price: 250, image: mangoPickleImg, category: 'veg' },
+  { id: 'man-500', name: 'Mango Pickle', weight: '500g', price: 450, image: mangoPickleImg, category: 'veg' },
+  { id: 'man-1kg', name: 'Mango Pickle', weight: '1kg', price: 799, image: mangoPickleImg, category: 'veg' },
 ];
+
+const allProducts = [
+  ...chickenBoneProducts,
+  ...chickenBonelessProducts,
+  ...tomatoProducts,
+  ...mangoProducts,
+];
+
+// Reusable Product Card Component to avoid duplication
+const ProductCard = ({ product, index, handleWhatsApp }) => {
+  return (
+    <motion.div
+      key={product.id}
+      className="tomato-card"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      whileHover={{ y: -10, scale: 1.02 }}
+    >
+      <div className="tomato-img-wrapper">
+        <img src={product.image} alt={`${product.name} ${product.weight}`} />
+      </div>
+      <div className="tomato-info">
+        <h4>{product.name}</h4>
+        <span className="weight-badge">{product.weight}</span>
+        <p className="tomato-price">₹{product.price}</p>
+        <button
+          className="btn btn-whatsapp add-to-cart-btn"
+          onClick={() => handleWhatsApp(product)}
+        >
+          <WhatsAppIcon size={16} /> Order on WhatsApp
+        </button>
+      </div>
+    </motion.div>
+  );
+};
 
 const Products = () => {
   const { dispatch } = useCart();
@@ -54,6 +91,9 @@ const Products = () => {
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank', 'noopener,noreferrer');
   };
+
+  const vegProducts = allProducts.filter((product) => product.category === 'veg');
+  const nonVegProducts = allProducts.filter((product) => product.category === 'nonVeg');
 
   return (
     <section className="varieties-section">
@@ -77,170 +117,40 @@ const Products = () => {
           </motion.h2>
         </div>
 
-        <div className="tomato-section">
+        {/* Veg Pickles Section */}
+        <div id="veg-pickles" className="tomato-section">
           <div className="tomato-header">
-            <h3>Chicken Bone Pickle</h3>
+            <h3>Veg Pickles</h3>
             <div className="header-underline"></div>
           </div>
 
           <div className="tomato-grid">
-            {chickenBoneProducts.map((product, index) => (
-              <motion.div
+            {vegProducts.map((product, index) => (
+              <ProductCard
                 key={product.id}
-                className="tomato-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="tomato-img-wrapper">
-                  <img src={product.image} alt={`${product.name} ${product.weight}`} />
-                </div>
-                <div className="tomato-info">
-                  <h4>{product.name}</h4>
-                  <span className="weight-badge">{product.weight}</span>
-                  <p className="tomato-price">₹{product.price}</p>
-                  {/* <button
-                    className="btn btn-primary add-to-cart-btn"
-                    onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
-                  >
-                    <ShoppingCart size={16} /> ADD TO CART
-                  </button> */}
-                  <button
-                    className="btn btn-whatsapp add-to-cart-btn"
-                    onClick={() => handleWhatsApp(product)}
-                  >
-                    <WhatsAppIcon size={16} /> Order on WhatsApp
-                  </button>
-                </div>
-              </motion.div>
+                product={product}
+                index={index}
+                handleWhatsApp={handleWhatsApp}
+              />
             ))}
           </div>
         </div>
 
-        <div className="tomato-section">
+        {/* Non-Veg Pickles Section */}
+        <div id="non-veg-pickles" className="tomato-section" style={{ marginTop: '5rem' }}>
           <div className="tomato-header">
-            <h3>Chicken Boneless Pickle</h3>
+            <h3>Non-Veg Pickles</h3>
             <div className="header-underline"></div>
           </div>
 
           <div className="tomato-grid">
-            {chickenBonelessProducts.map((product, index) => (
-              <motion.div
+            {nonVegProducts.map((product, index) => (
+              <ProductCard
                 key={product.id}
-                className="tomato-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="tomato-img-wrapper">
-                  <img src={product.image} alt={`${product.name} ${product.weight}`} />
-                </div>
-                <div className="tomato-info">
-                  <h4>{product.name}</h4>
-                  <span className="weight-badge">{product.weight}</span>
-                  <p className="tomato-price">₹{product.price}</p>
-                  {/* <button
-                    className="btn btn-primary add-to-cart-btn"
-                    onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
-                  >
-                    <ShoppingCart size={16} /> ADD TO CART
-                  </button> */}
-                  <button
-                    className="btn btn-whatsapp add-to-cart-btn"
-                    onClick={() => handleWhatsApp(product)}
-                  >
-                    <WhatsAppIcon size={16} /> Order on WhatsApp
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="tomato-section">
-          <div className="tomato-header">
-            <h3>Tomato Pickle</h3>
-            <div className="header-underline"></div>
-          </div>
-
-          <div className="tomato-grid">
-            {tomatoProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                className="tomato-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="tomato-img-wrapper">
-                  <img src={product.image} alt={`${product.name} ${product.weight}`} />
-                </div>
-                <div className="tomato-info">
-                  <h4>{product.name}</h4>
-                  <span className="weight-badge">{product.weight}</span>
-                  <p className="tomato-price">₹{product.price}</p>
-                  {/* <button
-                    className="btn btn-primary add-to-cart-btn"
-                    onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
-                  >
-                    <ShoppingCart size={16} /> ADD TO CART
-                  </button> */}
-                  <button
-                    className="btn btn-whatsapp add-to-cart-btn"
-                    onClick={() => handleWhatsApp(product)}
-                  >
-                    <WhatsAppIcon size={16} /> Order on WhatsApp
-                  </button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <div className="tomato-section">
-          <div className="tomato-header">
-            <h3>Mango Pickle</h3>
-            <div className="header-underline"></div>
-          </div>
-
-          <div className="tomato-grid">
-            {mangoProducts.map((product, index) => (
-              <motion.div
-                key={product.id}
-                className="tomato-card"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <div className="tomato-img-wrapper">
-                  <img src={product.image} alt={`${product.name} ${product.weight}`} />
-                </div>
-                <div className="tomato-info">
-                  <h4>{product.name}</h4>
-                  <span className="weight-badge">{product.weight}</span>
-                  <p className="tomato-price">₹{product.price}</p>
-                  {/* <button
-                    className="btn btn-primary add-to-cart-btn"
-                    onClick={() => handleAddToCart({ ...product, name: `${product.name} - ${product.weight}` })}
-                  >
-                    <ShoppingCart size={16} /> ADD TO CART
-                  </button> */}
-                  <button
-                    className="btn btn-whatsapp add-to-cart-btn"
-                    onClick={() => handleWhatsApp(product)}
-                  >
-                    <WhatsAppIcon size={16} /> Order on WhatsApp
-                  </button>
-                </div>
-              </motion.div>
+                product={product}
+                index={index}
+                handleWhatsApp={handleWhatsApp}
+              />
             ))}
           </div>
         </div>

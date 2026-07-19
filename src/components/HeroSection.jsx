@@ -147,7 +147,7 @@ const HeroSection = () => {
               </div>
 
               {/* CTA */}
-              <Link to="/products" className="btn btn-primary btn-lg">
+              <Link to="/veg-pickles" className="btn btn-primary btn-lg">
                 SHOP NOW &rarr;
               </Link>
             </motion.div>

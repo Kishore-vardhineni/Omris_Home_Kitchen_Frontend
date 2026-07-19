@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-dark-green: #2d4a1e;
-  --accent-orange: #e07b39;
-  --bg-cream: #fdf6ec;
-  --text-dark: #1a1a1a;
+  --primary-dark-green: #1C1500;
+  --accent-orange: #F5B800;
+  --bg-cream: #FEF3C0;
+  --text-dark: #1C1500;
 }
 
 * {
@@ -50,33 +50,35 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--primary-dark-green);
-  color: #fff;
+  background-color: #1C1500;
+  color: #F5B800;
 }
 .btn-primary:hover {
-  background-color: #223a17;
+  background-color: #2C2000;
+  color: #F5B800;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(45, 74, 30, 0.3);
+  box-shadow: 0 4px 12px rgba(28, 21, 0, 0.3);
 }
 
 .btn-accent {
-  background-color: var(--accent-orange);
-  color: #fff;
+  background-color: #F5B800;
+  color: #1C1500;
 }
 .btn-accent:hover {
-  background-color: #c76629;
+  background-color: #FDD74E;
+  color: #1C1500;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(224, 123, 57, 0.3);
+  box-shadow: 0 4px 12px rgba(245, 184, 0, 0.3);
 }
 
 .btn-outline {
   background-color: transparent;
-  color: var(--accent-orange);
-  border: 2px solid var(--accent-orange);
+  color: #1C1500;
+  border: 2px solid #1C1500;
 }
 .btn-outline:hover {
-  background-color: var(--accent-orange);
-  color: #fff;
+  background-color: #1C1500;
+  color: #F5B800;
 }
 
 /* Floating Particles wrapper */
@@ -90,3 +92,32 @@ button {
   z-index: 0;
   overflow: hidden;
 }
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #FEF3C0;
+}
+::-webkit-scrollbar-thumb {
+  background: #F5B800;
+  border-radius: 6px;
+  border: 3px solid #FEF3C0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1C1500;
+}
+
+/* Selection Highlight */
+::selection {
+  background-color: #F5B800;
+  color: #1C1500;
+}
+
+/* Focus Outline */
+*:focus-visible {
+  outline: 2px solid #F5B800;
+  outline-offset: 2px;
+}
+

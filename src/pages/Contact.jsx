@@ -327,7 +327,7 @@ const Contact = () => {
             <h3>Have Questions? We're Just a Message Away!</h3>
             <p>We're happy to assist you with anything you need.</p>
           </div>
-          <Link to="/products" className="cta-btn">
+          <Link to="/veg-pickles" className="cta-btn">
             Shop Now <ArrowRight size={16} />
           </Link>
         </div>
